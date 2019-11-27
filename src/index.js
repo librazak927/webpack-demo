@@ -1,6 +1,16 @@
-import './style.css'
-console.log('Hel154lo World!!!')
+import Vue from 'vue'
+import hello from './hello.vue'
+
+new Vue({
+  el: '#app',
+  mounted: function () {
+    console.log('Hello World')
+  },
+  components: { hello },
+  template: '<hello/>'
+})
 
 
 
-const arrowFunc = () => {}
+
+

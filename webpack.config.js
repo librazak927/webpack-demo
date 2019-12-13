@@ -4,7 +4,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: {
-    app: './src/index.js'
+    timer: './src/timer/index.js',
+    weather: './src/weather/index.js'
   },
 
   output: {
@@ -39,7 +40,14 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/weather/index.html',
+      filename: 'weather.html',
+      chunks: ['weather']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/timer/index.html',
+      filename: 'timer.html',
+      chunks: ['timer']
     }),
     new VueLoaderPlugin()
   ],
@@ -48,6 +56,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
+    disableHostCheck: true,
     hot: true
   }
 }
